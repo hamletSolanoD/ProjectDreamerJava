@@ -62,12 +62,13 @@
 <body>
     <div class="login-container">
         <h2>Iniciar sesión</h2>
-        <form class="login-form" action="/login" method="post">
+        <form class="login-form" action="/dreamUser/login" method="post">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
-
+            <p th:if="${emailError}" class="error-message" style="color: red;" th:text="${emailError}"></p>
             <label for="password">Contraseña:</label>
             <input type="password" id="password" name="password" required>
+            <p th:if="${passwordError}" class="error-message" style="color: red;" th:text="${passwordError}"></p>
             <input type="submit">
         </form>
     </div>

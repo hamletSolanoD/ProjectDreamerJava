@@ -17,9 +17,8 @@ public class DreamUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-    private String FlastName;
-    private String LlastName;
+    private String FName;
+    private String LName;
     private Date birthDate;
     @Column(unique = true)
     private String email;
@@ -49,28 +48,20 @@ public class DreamUser {
         this.id = id;
     }
 
-    public String getName() {
-        return this.name;
+    public String getFName() {
+        return this.FName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFName(String FName) {
+        this.FName = FName;
     }
 
-    public String getFlastName() {
-        return this.FlastName;
+    public String getLName() {
+        return this.LName;
     }
 
-    public void setFlastName(String FlastName) {
-        this.FlastName = FlastName;
-    }
-
-    public String getLlastName() {
-        return this.LlastName;
-    }
-
-    public void setLlastName(String LlastName) {
-        this.LlastName = LlastName;
+    public void setLName(String LName) {
+        this.LName = LName;
     }
 
     public Date getBirthDate() {
@@ -79,6 +70,18 @@ public class DreamUser {
 
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                " id='" + getId() + "'" +
+                ", FName='" + getFName() + "'" +
+                ", LName='" + getLName() + "'" +
+                ", birthDate='" + getBirthDate() + "'" +
+                ", email='" + getEmail() + "'" +
+                ", password='" + getPassword() + "'" +
+                "}";
     }
 
 }

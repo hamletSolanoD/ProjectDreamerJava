@@ -26,16 +26,16 @@ public class userController {
         return "login"; // Nombre de la plantilla Thymeleaf
     }
 
-    @PostMapping("/login")
+    @PostMapping("/dreamUser/login")
     public String iniciosesion(@RequestParam("email") String email, @RequestParam("password") String password,
             HttpServletRequest request, Model model) {
         DreamUser dreamUser = userRepo.findByEmail(email);
         if (dreamUser == null) {
-            model.addAttribute("emailError", true);
+            model.addAttribute("emailError", "Email not found");
             return "login";
         }
         if (!dreamUser.getPassword().equals(password)) {
-            model.addAttribute("passwordError", true);
+            model.addAttribute("passwordError", "Incorrect password");
             return "login";
         }
 
